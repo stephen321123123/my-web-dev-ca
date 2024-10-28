@@ -23,3 +23,4 @@ Route:: get('/cars', [CarController::class, 'index'])->name('cars.index');
 require __DIR__.'/auth.php';
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/cars/{car}', [CarController::class, 'show'])->name('cars.show');
