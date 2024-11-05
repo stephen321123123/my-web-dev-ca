@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -21,7 +22,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -29,7 +30,39 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request ->validate([
+            'title'=> 'required',
+            'price' => 'required |decimal',
+            'release_year' => 'required|integer',
+            'engine_size' => 'required|decimal',
+            'transmission_type' => 'required',
+            'colour' => 'required',
+            'registration_year' => 'required|integer',
+        ]);
+            
+            //  Check if the image is uploaded and handle it
+            if ($request->hasFile ('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            request->image->move(public_path( 'images/cars'), $imageName);
+            }
+
+            // Create a book record in the database
+            Car::create([
+            'title'=> $request->title,
+            'price' => $request->price, 
+            'release_year' => $request->release_year,
+            'engine_size' => $request->engine_size,
+            'transmission_type' => $request->transmission_type,
+            'colour' => $request->colour,
+            'registration_year' => $request->registration_year,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+
+            
+            //Redirect to the index page with a success message
+
+            return to_route('cars.index') ->with('success', 'Car created successfully!');
     }
 
     /**

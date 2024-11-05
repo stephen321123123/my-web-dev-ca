@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('cars.index')" :active="request()->routeIs('cars.index')">
                         {{ __('View All Cars') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('cars.create')" :active="request()->routeIs('cars.create')">
+                        {{ __('Create new Car') }}
+                    </x-nav-link>
                 </div>
             </div>
 
