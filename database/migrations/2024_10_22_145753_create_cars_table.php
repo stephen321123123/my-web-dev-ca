@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->decimal('price', 10, 2);
-            $table->integer('release year');
-            $table->decimal('engine size', 10, 2);
-            $table->string('transmission type');
+            $table->integer('release_year');
+            $table->decimal('engine_size', 10, 2);
+            $table->string('transmission_type');
             $table->string('colour');
-            $table->integer('registration year');
+            $table->integer('registration_year');
             $table->timestamps();
         });
     }

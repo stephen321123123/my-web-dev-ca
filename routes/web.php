@@ -22,6 +22,7 @@ Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 Route::get('/cars/{car}', [CarController::class, 'show'])->name('cars.show');
 Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+Route::post('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
 
 require __DIR__.'/auth.php';
 

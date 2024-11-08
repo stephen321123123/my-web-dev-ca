@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
-use illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -30,11 +30,11 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $request ->validate([
+        $request->validate([
             'title'=> 'required',
-            'price' => 'required |decimal',
+            'price' => 'required |decimal:0,0',
             'release_year' => 'required|integer',
-            'engine_size' => 'required|decimal',
+            'engine_size' => 'required|decimal:0,1',
             'transmission_type' => 'required',
             'colour' => 'required',
             'registration_year' => 'required|integer',

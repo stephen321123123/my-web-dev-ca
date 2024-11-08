@@ -8,6 +8,7 @@
     <x-alert-success>
         {{ session('success') }}
 </x-alert-success>
+
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm: rounded-lg">
@@ -19,9 +20,16 @@
                         <x-car-card
                         :title="$car->title"
                         :price="$car->price"
+                        :release_year="$car->release_year"
+                        :engine_size="$car->engine_size"
+                        :transmission_type="$car->transmission_type"
                         :colour="$car->colour"
+                        :registration_year="$car->registration_year"
                         />
                 </a>
+
+              
+
                     @endforeach
                     </div>
                 </div>

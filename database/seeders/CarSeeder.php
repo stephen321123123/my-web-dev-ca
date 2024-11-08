@@ -19,11 +19,11 @@ class CarSeeder extends Seeder
             [
                 'title' => 'Passat', 
                 'price' => 5000, 
-                'release year' => 1973, 
-                'engine size' => 1.6, 
-                'transmission type' => 'manual', 
+                'release_year' => 1973, 
+                'engine_size' => 1.6, 
+                'transmission_type' => 'manual', 
                 'colour' => 'black', 
-                'registration year' => 2011, 
+                'registration_year' => 2011, 
                 'created_at' => $currentTimestamp, 
                 'updated_at' => $currentTimestamp
             ]
