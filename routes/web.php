@@ -18,11 +18,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
-Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
-Route::get('/cars/{car}', [CarController::class, 'show'])->name('cars.show');
-Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
-Route::post('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
+// Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+// Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+// Route::get('/cars/{car}', [CarController::class, 'show'])->name('cars.show');
+// Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
+// Route::put('/cars/{car}', [CarController::class, 'update'])->name('cars.update');
+// Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+// Route::delete('/cars', [CarController::class, 'destroy'])->name('cars.destroy');
+
+Route::resource('cars', CarController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'show']);
 
 require __DIR__.'/auth.php';
 

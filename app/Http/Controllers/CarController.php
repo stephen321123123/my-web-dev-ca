@@ -78,15 +78,19 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        return view('cars.edit')->with('car', $car);
+
+        return to_route('cars.index') ->with('success', 'Car edited successfully!');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Car $car)
+    public function update(Request $request, Car $car): RedirectResponse
     {
-        //
+       $car->update();
+
+       return to_route('cars.index')->with('success', 'Item updated successfully');
     }
 
     /**
@@ -94,6 +98,8 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car->delete();
+
+        return to_route('cars.index')->with('success', 'Item deleted successfully');
     }
 }

@@ -1,6 +1,6 @@
 @props(['title', 'price', 'release year', 'engine size', 'transmission type', 'colour', 'registration year'])
 
-<div class="border rounded-lg shadow-nd p-6 bg-white hover:shadow-lg transition duration-300">
+<div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300">
     <h4 class="">{{$title}}</h4>
     <p class="">{{ $price }}</p>
     <p class="">{{ $release_year }}</p>
