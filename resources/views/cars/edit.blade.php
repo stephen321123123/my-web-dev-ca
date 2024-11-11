@@ -17,7 +17,7 @@
                     
 
                     <x-car-form
-                    :action="route( 'cars.edit', $car)"
+                    :action="route( 'cars.update', $car)"
                     :method="'PUT'"
                     :car="$car"
                     />

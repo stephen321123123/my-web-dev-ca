@@ -80,18 +80,31 @@ class CarController extends Controller
     {
         return view('cars.edit')->with('car', $car);
 
-        return to_route('cars.index') ->with('success', 'Car edited successfully!');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Car $car): RedirectResponse
+    public function update(Request $request, Car $car)
     {
-       $car->update();
 
-       return to_route('cars.index')->with('success', 'Item updated successfully');
+       {
+        $request->validate([
+        'title' => 'required',
+        'price' => 'required',
+        'release_year' => 'required',
+        'engine_size' => 'required',
+        'transmission_type' => 'required',
+        'colour' => 'required',
+        'registration_year' => 'required'
+    ]);
+     
+        $data = $request->only(['title', 'price', 'release_year', 'engine_size', 'transmission_type', 'colour', 'registration_year']);
+     
+        $car->update($data);
+        return redirect()->route('cars.index')->with('success', 'Item updated successfully');
     }
+}
 
     /**
      * Remove the specified resource from storage.
