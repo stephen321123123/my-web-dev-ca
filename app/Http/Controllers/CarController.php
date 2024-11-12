@@ -61,6 +61,7 @@ class CarController extends Controller
 
             
             //Redirect to the index page with a success message
+            //hello
 
             return to_route('cars.index') ->with('success', 'Car created successfully!');
     }
